@@ -1,0 +1,23 @@
+.container{
+width: 50%;
+
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5%;
+}
+
+.img{
+    height: 30%;
+    width:30%;
+}
+.button{
+padding: 2% 15% 2% 15%;
+background-color: gray;
+color: white;
+    border-style:none;
+    margin-top: 5%;
+}
+.button:hover{
+    background-color: gainsboro;
+    color: black;
+}

@@ -1,0 +1,11 @@
+.header{
+    width: 100%;
+    background-color: darkgrey;
+
+padding: 5%;
+}
+
+.container{
+      display: flex;
+    justify-content: space-around;  
+}
