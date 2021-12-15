@@ -21,3 +21,8 @@ color: white;
     background-color: gainsboro;
     color: black;
 }
+.selects{
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+}

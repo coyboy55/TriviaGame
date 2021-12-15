@@ -1,37 +1,35 @@
-import React, { useState, useEffect } from 'react'
-import SessionContext from './SessionContext'
+import React, { useState, useEffect } from "react";
+import SessionContext from "./SessionContext";
 
 export default function SessionProvider({ children }) {
-
-    const [session, updateSession] = useState({
-        gameInfo:{
-            question:0,
-            ammount:0,
-            points:0,
-            timer:15,
-
-        }
-    });
+  const [question, setQuestion] = useState(1);
+  const [points, setPoints] = useState(0);
+  const [timer, setTimer] = useState(15);
+  const [ammount, setAmmount] = useState(10);
+  const [difficult, setDifficult] = useState("medium");
 
 
-    function setSession(nextSession) {
-        updateSession(prevSession => ({
-            ...prevSession,
-            ...nextSession
-        }));
-    }
+  useEffect(() => {}, []);
 
-   
+  let context = {
+    question,
+    timer,
+    points,
+    actions: {
+      setAmmount,
+      setDifficult,
+      setAmmount,
+      setPoints,
+      setTimer,
+      setQuestion,
+    },
+    ammount,
+    difficult,
+  };
 
-    useEffect(() => {
-    
-    }, []);
-
-    let context = { session, actions: {} }
-
-    return (
-        <SessionContext.Provider value={context}>
-            {children}
-        </SessionContext.Provider>
-    )
+  return (
+    <SessionContext.Provider value={context}>
+      {children}
+    </SessionContext.Provider>
+  );
 }
