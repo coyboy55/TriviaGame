@@ -5,18 +5,18 @@ import randomArrayShuffle from "./randomArray";
  * @param {string}
  * @returns
  */
-export async function fetchUrl({ difficult, ammount }){
+export async function fetchUrl({ difficult, ammount }) {
   let url = `https://opentdb.com/api.php?amount=${ammount}&difficulty=${difficult}&type=multiple`;
   try {
     let response = await fetch(url);
     let data = await response.json();
-    if (data.response_code == 0) {
+    if (data.response_code === 0) {
       return fixResult(data.results);
     }
   } catch (e) {
     return e;
   }
-};
+}
 
 const fixResult = (questions) => {
   return questions.map((question, index) => ({
@@ -25,7 +25,9 @@ const fixResult = (questions) => {
     type: question.type,
     difficulty: question.difficulty,
     text: decodeHTML(question.question.trim()),
-    choices: randomArrayShuffle(question.correct_answer.split(",").concat(question.incorrect_answers)) ,
+    choices: randomArrayShuffle(
+      question.correct_answer.split(",").concat(question.incorrect_answers)
+    ),
     correct: decodeHTML(question.correct_answer.trim()),
     incorrect: question.incorrect_answers,
   }));
@@ -36,4 +38,3 @@ const decodeHTML = (html) => {
   txt.innerHTML = html;
   return txt.value;
 };
-

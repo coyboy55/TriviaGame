@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import SessionContext from "../../session/SessionContext";
 import style from "./header.module.css";
-const Header = () => {
-  const { question, ammount, points, timer } = useContext(SessionContext);
+const Header = (props) => {
+  const { question, ammount, points } = useContext(SessionContext);
+  let { time } = props;
   return (
     <header className={style.header}>
       <div className={style.container}>
@@ -12,7 +13,7 @@ const Header = () => {
         <div>
           Points :{points}/{ammount * 1000}
         </div>
-        <div>Remaining time :{timer}</div>
+        <div>Remaining time :{time}</div>
       </div>
     </header>
   );

@@ -6,7 +6,7 @@ const Answers = (props) => {
     <Fragment>
       {answers &&
         answers.map((answer, index) => (
-          <div>
+          <div key={index}>
             <button
               style={{
                 margin: "1%",
@@ -14,11 +14,12 @@ const Answers = (props) => {
                 backgroundColor: "gray",
                 color: "white",
                 borderStyle: "none",
-                marginTop: "5%",
+                // marginTop: "5%",
               }}
               value={answer}
-              key={index}
-              onClick={(e)=>{nextQuestion({Answer:e.target.value,correct})}}
+              onClick={(e) => {
+                nextQuestion({ Answer: e.target.value, correct });
+              }}
             >
               {answer}
             </button>
